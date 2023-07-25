@@ -15,7 +15,7 @@ const agentA = new Employee();
 agentA.name = "Agent A";
 agentA.sayHello("agent B");
 
-const agentB = new Employee();
+const agentB = new Manager();
 agentB.name = "Agent B";
 agentB.sayHello("agent A");
 
