@@ -45,7 +45,12 @@
         }
       }
 
-      function addTodolist(todo) {
+      function removeTodoList(index) {
+        todolist.splice(index, 1);
+        displayTodolist();
+      }
+
+      function addTodolist(index, todo) {
         const tr = document.createElement("tr");
         const tdButton = document.createElement("td");
         tr.appendChild(tdButton);
@@ -53,6 +58,9 @@
         const buttonDone = document.createElement("input");
         buttonDone.type = "button";
         buttonDone.value = "Done";
+        buttonDone.onclick = function () {
+          removeTodoList(index);
+        };
         tdButton.appendChild(buttonDone);
 
         const tdTodo = document.createElement("td");
@@ -74,7 +82,7 @@
             .value.toLowerCase();
 
           if (todo.toLowerCase().includes(searchText)) {
-            addTodolist(todo);
+            addTodolist(i, todo);
           }
         }
       }
